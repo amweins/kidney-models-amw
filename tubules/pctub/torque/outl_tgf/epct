@@ -1,0 +1,15 @@
+vi pct.f \
+ pctgam.f \
+ pctpset.f \
+ pctptim.f \
+ pctflux.f \
+ pcterr.f \
+ pcterr.bac \
+ pcterr.cen \
+ pctresa.f \
+ pctresb.f \
+ pctresc.f \
+ pctresd.f \
+ pctpick.f \
+ pctorque.f \
+ pcreset.f

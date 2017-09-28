@@ -1,0 +1,4 @@
+cp result.dat result_1.test 
+cp lumen.dat lumen_1.test 
+cp torque.dat torque_1.test 
+cp xy.dat xy_1.test 
