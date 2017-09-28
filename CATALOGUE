@@ -1,0 +1,105 @@
+This site contains the source code used in my models of rat renal epithelia, renal tubule segments,
+multisegmental nephron components, and the blood vessels (vasa rectae) used to formulate a full
+kidney model.  The four directories are named to indicate their content.  All of the code is Fortran,
+and the bulk of it is the Fortran-77 standard.  Most the code has been used in published models over 
+more than 3 decades.  References to those pulications is provided in REFERENCES. 
+
+Epithelia:  These models are of an epithelium between two well-mixed mucosal (luminal) and 
+serosal (peritubular) compartments.  The epithelium itself is comprised of well-mixed cellular
+and lateral intercellular spaces (LIS).  Model solutes always include a selection from the menu:  
+Na+, K+, Cl-, HCO3-, H2CO3, CO2, HPO4--, H2PO4-, urea, NH3, NH4+, H+, glucose, HCO2-, H2CO2.
+Model variables are the solute concentrations in cell and LIS, along with hydrostatic pressure,
+and electrical potential within each compartment.  For open-circuit conditions, transepithelial
+electrical PD is an additional variable.  
+
+The code for all these models follows a very standard format: The main programs are all named
+"comp.f", and they read in luminal and peritublar bath conditions.  A "pset.f" subroutine provides
+the structural and biophysical model parameters.  The "errvec.f" subroutine contains the conservation
+equations and pH equilibria, and assesses the accuracy of the values assigned to the model variables.  
+Then comp.f asks for repeated calls to errvec.f to compute a Jacobian of errors, as a function of 
+the guesses.  A linear equation solver, "les.f", is then invoked for a Newton correction.  Upon 
+solution of the model equations, results are output by a number of "resul.f" routines.  These codes 
+provide for both steady-state and time-dependent versions of a problem. 
+
+Beyond simple diffusion, the membrane transporters can be assigned to channels, cotransporters,
+and ATP-dependent pumps.  The distinction among the renal epithelia is in the parameter sets.  
+Some of the cotransporters have been provided with their own kinetic models (binding-translocation-
+and unbinding sequences), so that these appear as additional subroutine calls.  Abbreviations 
+used to designate the renal epithelia are:
+
+	pct-	proximal convoluted tubule
+	pst-	proximal straight tubule
+	  sfpct and sfpst or jmpct and jmpst distinuish superficial and juxtamedullary epithelia
+	sdhl-	descending Henle limb, associated with superfial nephrons 
+	ldhlu-	descending Henle limbs of juxtamedullary nephrons (outer medullary segment)
+	ldhll-	descending Henle limbs of juxtamedullary nephrons (inner medullary segment)
+	tahl-	thin ascending Henle limb of juxtamedullary nephrons (inner medulla)
+	ahlm-	thick ascending Henle limb within the outer medulla
+	ahlc-	thick ascending Henle limb within the cortex
+	dct-	distal convoluted tubule
+	cnt-	connecting segment
+	cct-	cortical collecting duct
+	omct-	outer medullary collecting duct (historical value, as the basis for early publications)
+	ompct-	outer medullar collecting duct, which includes the principal cells of that segment
+	imct-	inner medullary collecting duct
+
+Each directory contains utility programs to provide a number of parameter sets ("pcr.f"), or to
+generate boundary data for examining a range of bath conditions ("bcr.f").  It also contains other
+utilities to extract specified data interactively, from an output file ("rewr.f"). 
+
+As subdirectories to pct and dct, there are "control" directories, which contain programs similar
+to the parent directory, but in which membrane transporter densities are allowed to vary as 
+functions of cytosolic conditions (e.g. concentrations of Na+ or Cl-, cytosolic pH, or cell volume).  
+As subdirectories to cnt and cct, there are "ttkg" directories, which contain programs similar to
+the parent directory, but in which luminal K+ concentration is an additional model variable,
+and the model equation corresponds to zero net K+ transport (adding transcellular and paracellular
+fluxes).  This luminal concentration corresponds to the clinically determined TTKG.
+
+
+Tubules:  Each of the epithelia has been rolled into a tubule segment, and these models provide
+solutions for the differential equations describing luminal urine flow.  In each segment, the
+initial luminal composition is provided, and then the luminal, cellular, and interspace conditions
+are solved along the segment.  Peritubular conditions are uniform and fixed.  The differential
+equations are differenced either as centered schemes, or as backward schemes when stiffness
+issues were encountered.  In the intact kidney, cnt segments coalesce in a 5-to-1 ratio (i.e.
+5 times as many dct as cct), and the imct coalesce in a 64-to-1 ratio (i.e. 64 times as many
+omct as papillary collecting ducts). For both cnt and imct, the code provides for solution of 
+either isolated segments, or for the full ensemble of coalescing tubules. 
+
+There are subdirectories that correspond to special features of their respective tubule models.
+Within pctub, the "torque" directory holds the modification in which luminal fluid flow velocity
+(i.e. brush border drag) modulates the density of both luminal and peritubular membrane transporters.
+This feature was carried into subsequent work, specifically the multisegment codes of pnahl and nephron.
+The subdirectory "torque/outlet" solves a boundary-value problem, in which initial conditions are
+specified, except for luminal hydrostatic pressure; rather, end-luminal pressure satisfies an
+hydraulic resistance condition.  Within dctub, the "control" directory allows for transporter density
+to vary as a function of cytosolic conditions (as in the epithelial directory, "dct/control").
+
+
+Multiseg:  These are directories containing concatenated tubule models representing nephron regions
+of a single rat kidney.  The flows of each region are for the full ensemble of tubules.
+
+	micropunc-  concatenated dctub and cntub, corresponds to rat distal micropuncture locus
+	ahlmc-	concatenated ahlmtub and ahlctub, simulates the full ascending Henle limb
+	dn-	all segments of the rat kidney from dct through imct
+	ahldn-	all segment from ahlm through imct
+	pnahl-	segments from pct through ahlc, with modulation of initial flow by tubuloglomerular feedback
+	nephron-  complete ensemble of nephrons, indluding tubuloglomerular feedback
+
+
+Vessels:  These are vasa recta models, for which there are no cellular or LIS compartments, but which
+represent parallel pathways for transport from lumen to interstitium, across tight junctions and cells.
+The directories, "vr" and "vasc", contain code for single vessels (vr) or the vasa recta ensemble (vasc).
+The vessel codes have the same structure as for tubules.  What complicates these routines is that luminal
+solute variables include an additional 14 species that represent hemoglobin buffering, and this buffering
+is also dependent upon local oxygen tension. The difference from one vessel to another is primarily in 
+the parameter set, defining its permeabilities. 
+
+	omdvr-	outer medullary descending vasa recta for vessels, which turn in the outer medulla
+	omavr-	outer medullary ascending vasa recta for vessels, which have turned in the outer medulla
+	oidvr-	outer medullary descending vasa recta for vessels, which turn in the inner medulla
+	oiavr-	outer medullary ascending vasa recta for vessels, which have turned in the inner medulla
+	imdvr-	inner medullary descending vasa recta 
+	imavr-	inner medullary ascending vasa recta 
+	mrdvr-	medullary ray descending vasa recta 
+	mravr-	medullary ray ascending vasa recta 
