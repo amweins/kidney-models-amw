@@ -1,0 +1,681 @@
+DCT			
+			
+Geometry		Rat	
+		value	ref
+Cell Number	cells/mm	516	55
+			
+Inner Diam	micron	23	120
+DCT		13.4 - 16	47
+CN T		17.4 - 18.6	47
+Outer Diam	micron	41	120
+DCT		29.2 - 31	47
+CN T		28.2 - 32.2	47
+			
+Inner Diam	micron	Rabbit	
+DCT		14.9	77
+CN T		19.7	77
+CCT		18	77
+Outer Diam	micron		
+DCT		30.3	77
+CN T		37.5	77
+CCT		36.2	77
+			
+			
+Length	cm	0.22	120
+(36000 nephrons)	0.35	18
+		0.21	45
+		0.21 - 0.23	46
+		0.23	126
+Volume	cm3/cm		
+			
+LIS volume	%		
+			
+Cell Height	micron		
+DCT		6.6 - 8.8	47
+CN T		5.4 - 6.8	47
+			
+Cell Height		Rabbit	
+DCT		7.4	77
+CN T		9.4	77
+CCT		9.1	77
+			
+Volume	cm3/cm tubule	9.04E-06	120
+			
+Apical area	cm2/cm tubule	3.40E-02	120
+	cm2/cm2 tubule	4.71E+00	120
+	cm2/cm3 cell	3.76E+03	120
+Basolat area	cm2/cm tubule	5.00E-01	120
+	cm2/cm2 tubule	6.92E+01	120
+	cm2/cm3 cell	5.53E+04	120
+			
+DCT			
+Apical area	cm2/cm3 cell	2800	127
+Basolat area	cm2/cm3 cell	38800	127
+CNT			
+Apical area	cm2/cm3 cell	2100	127
+Basolat area	cm2/cm3 cell	32500	127
+CNT-IC			
+Apical area	cm2/cm3 cell	5400	127
+Basolat area	cm2/cm3 cell	16000	127
+ICD-PC			
+Apical area	cm2/cm3 cell	3300	127
+Basolat area	cm2/cm3 cell	32800	127
+ICD-IC			
+Apical area	cm2/cm3 cell	5000	127
+Basolat area	cm2/cm3 cell	17100	127
+			
+DCT			
+Apical area	cm2/cm3 cell	4700	39
+Amplification	2.8	39
+Basolat area	cm2/cm3 cell	31400	39
+Amplification	16.6	39
+CNT			
+Apical area	cm2/cm3 cell	2400	39
+Amplification	1.7	39
+Basolat area	cm2/cm3 cell	35400	39
+Amplification	20.1	39
+ICD-IC			
+Apical area	cm2/cm3 cell	4400	39
+Amplification	2.9	39
+Basolat area	cm2/cm3 cell	19400	39
+Amplification	9.5	39
+ICD-PC			
+Apical area	cm2/cm3 cell	3200	39
+Amplification	1.4	39
+Basolat area	cm2/cm3 cell	27400	39
+Amplification	10.4	39
+			
+Lumen		Rat	
+		value	ref
+Na	mmol/l	(early) 45.2	16
+		(late) 35.5	16
+		(limiting) 50	34
+		no change with ADH 43-46	93
+			
+TF/P		(early) 0.3 -0.5	110
+		(late) 0.1 -0.3	110
+		(early) 0.5	34
+		(late) 0.4	34
+TF/P (Na/In)		(early) 10%	110
+		(late) 1%	110
+		(early) 8%	34
+		(late) 2%	34
+		(early) 7.8%	81
+		(late) 3.8%	81
+		(early) 16.6	131
+		(late) 7.6	131
+		low salt (early) 15.3	131
+		low salt (late) 7.8	131
+		hypovol (early) 9.9	131
+		hypovol (late) 3.4	131
+			
+			
+K	mmol/l	(early) 2.5	16
+		(late) 10.9	16
+			
+TF/P		(early) 0.5	109
+		(late) 6.0	109
+		(late-high K diet) 15	109
+		(early) 0.3	40
+		(late) 3.0	40
+			
+			
+T/P (K/In)		(early) 10%	109
+		(late) 50%	109
+		(early) 13%	81
+		(late) 20%	81
+		(early) 4%	40
+		(late) 40%	40
+			
+limiting CM(K)	mmol/l	31	7
+limiting CM(K)	mmol/l	30	6
+limiting 		13-15	68
+			
+Cl	mmol/l	(early) 39.2	16
+		(late) 32.5	16
+		(control) 34	58
+		(met alk) 28	58
+		(met alk-correcting) 29	58
+		(early) 28	59
+		(late) 26	59
+TF/P (Cl/In)		(early) 4.7%	59
+		(late) 2.0%	59
+		(control) 35	38
+		(met alk) 25	38
+		(control) 29.4	56
+		(met alk) 26.6	56
+			
+HCO3	mmol/l	8.1	107
+		(early) 8.0	25
+		(late) 7.7	25
+		(early) 5.3	156
+		(late) 4.2	156
+TF/P (HCO3/In)	(early) 0.089	25
+		(late) 0.042	25
+			
+		(contr) 4.8	155
+		(met alk) 6.7	155
+		(control) 6.9	58
+		(met alk) 29.8	58
+			
+Urea	mmol/l		
+		TF/P = 7.7	89
+PO4	mmol/l	8.2	9
+		2.9	9
+	Acid+PO4	(early) 4.29	160
+	Acid+PO4	(late) 5.58	160
+			
+			
+TA		(late) 5.74	81
+TA / (TF/P)In	0.46	81
+	Acid+PO4	(early) 2.11	160
+	Acid+PO4	(late) 3.14	160
+			
+			
+			
+NH4	mmol/l	5	9
+		(late) 6.2	79
+			
+	Acid+PO4	(early) 1.34	160
+	Acid+PO4	(late) 4.26	160
+			
+			
+pH		6.41	107
+		(early) 6.99	114
+		(late) 7.05	114
+	Acid+PO4	(early) 6.52	160
+	Acid+PO4	(late) 6.51	160
+			
+Disequil pH		-0.37	107
+	(HCO3 infusion)	-0.49	41
+		pH change 0.83 units after CA injection	122
+		6.57	41
+			
+			
+Limiting pH		(early) 6.65	27
+		(late) 6.39	27
+		(early) 6.77	12
+		(late) 6.53	12
+		(late-stationary) 6.30	49
+		(early) 7.05	50
+		(late) 6.68	50
+		(early) 6.88	64
+		(late) 6.38	64
+		(early-MetAc) 6.11	64
+		(late-MetAc) 5.94	64
+			
+PD	mv	-50	106
+		-32	7
+		(early) -10	34
+		(late) -60	34
+		(early) -17.5	12
+		(late) -45.4	12
+		(early) -7.2	50
+		(late) -44.3	50
+		(early) -10	162
+		(late) -50	162
+		(early) -18	74
+		(late) -42	74
+		(early) -19.3	108
+		(late) -46.9	108
+		(early) -16.9	114
+		(late) -48.3	114
+		(late) -37.6	6
+			
+rabbit		(early) -6.5	71
+		-2.8	163
+		-5 to -42	5
+dct		-28.7	77
+dct + doca		-29.7	77
+cnt		-27	77
+cnt + doca		-25.6	77
+cct		-3.5	77
+cct + doca		-32.3	77
+			
+Flow	nl/min	5-6	51
+		(early) 4.7	81
+		(late) 2.7	81
+		(early) 6.4	156
+		(late) 2.3	156
+		(early) 5.9	56
+		(early met alk) 4.9	56
+		(late met alk) 2.9	56
+			
+	TF/P Inulin	(early) 5.0	109
+		(early) 3.36	25
+		(late) 7.43	25
+			
+		(early) 5.6	155
+		(early - Met Alk) 7.0	155
+		5.9	58
+			
+Interstitium			
+			
+Na	mmol/l		
+K	mmol/l		
+Cl	mmol/l		
+HCO3	mmol/l		
+Urea	mmol/l		
+PO4	mmol/l		
+NH4	mmol/l		
+pH			
+			
+Epithelial		Rat	
+Fluxes		value	ref
+water	nl/min*mm	1	103
+			
+Na	pmol/min*mm	(early) 123	35
+		(late) 143	35
+		(early) 68	46
+		(late) 67	46
+		(early - hi Na) 276	46
+		(late - hi Na) 113	46
+		(early - HCTZ) -34	46
+		(late - HCTZ) 56	46
+		164	126
+		(early) 77	103
+Tot. DCT Na flux	nmol/min		
+	FNa=nmol/min	JK=0.803*FNa -0.082	83
+rabbit CNT			
+	pmol/min*mm	122	5
+			
+			
+			
+K	pmol/min*mm		
+Total DCT	muEq /min	3.6	106
+(300 gm rats)	pEq/tubule/min	100	106
+Acidosis	muEq /min	0	106
+Alkalosis	muEq /min	8.1	106
+			
+	pmol/min*mm	(con - hi flow) -144	144
+		(amil) -78	144
+		(con) -56	144
+		(HCTZ) -56	144
+			
+			
+stationary drop	pmol/min*mm	33	7
+		(early) -12	137
+		(early -0 Cl) -26	137
+		(early hi Na) -9	137
+		(early - hi Na 0 Cl) -57	137
+		(late) -60	137
+		(late -0 Cl) -106	137
+		(late hi Na) -42	137
+		(late - hi Na 0 Cl) -117	137
+		(late) -36	6
+			
+perf -dependent		
+aftificial fluid		-10 to -20 	105
+harvested fluid	-10 to -60	105
+		-27	126
+			
+		no effect of JNaCl inhibition on JK	138
+			
+		(early) -39	103
+		(late) -26	8
+		(late +AVP) -32	8
+			
+Tot. DCT K flux	pmol/min		
+	Fv=flow (nl/min)	JK=5.7 *Fv -10.6	82
+	FNa=nmol/min	JK=60.8*FNa -9.4	82
+	CNa=mM	JK=2.6*CNa -103.2	82
+			
+Cl	pmol/min*mm	(early) 115	46
+		(late) 112	46
+		(early - hi Na) 345	46
+		(late - hi Na) 103	46
+		(early - HCTZ) -31	46
+		(late - HCTZ) -7	46
+			
+		(control) 109	147
+		(formate) 202	147
+		(formate + CTZ) 196	147
+			
+HCO3	pmol/min*mm	(early- no AVP) 44	12
+		(early- AVP) 100	12
+		64% inh by amil	12
+		no inh by baf	12
+		(late- no AVP) 25	12
+		(late- AVP) 78	12
+		34% inh by amil	12
+		32% inh by baf	12
+		(late) 57	49
+			
+		(early) 32	50
+		(early HMA) 15.5	50
+		(early) 41	50
+		(early -Baf) 39.5	50
+		(late) 35.3	50
+		(late HMA) 16.5	50
+		(late) 55.5	50
+		(late -Baf) 28.2	50
+			
+		(early) 110	64
+		(late) 156	64
+		(early-MetAc) 65	64
+		(late-MetAc) 122	64
+			
+	pmol/min*mm	(control) 16	87
+		(high prot) 41	87
+		(high prot - Amil) 23	87
+			
+	pmol/min*mm	(maximal) 75	29
+		(con) 67.3	149
+		(+ NHE2 inhibitor) 34.1	149
+			
+	nmol/s*cm2	(early) 0.9	114
+		(early +ADH) 1.8	114
+			
+	pmol/min*mm	(early) 0	103
+		(early-met ac) 53	103
+			
+		15->50 mmol lumen Cl	
+		yields HCO3 secr= ~10	94
+			
+			
+Total DCT	muEq /min	6.2	106
+(300 gm rats)	pEq/tubule/min	173	106
+Acidosis	muEq /min	0.8	106
+Alkalosis	muEq /min	37	106
+Control	pEq/tubule/min	49	25
+Lum Bi=58	pEq/tubule/min	179	24
+			
+		(fed) -2	95
+		(fasted) 10	95
+		(fast - hi Bi) 53	95
+		(fast - 0 Cl) 40	97
+		(fast - 45 Cl) 30	97
+			
+FR(HCO3)		0.75	153
+			
+Km (con)	mmol/L	21.6	158
+Vmax(con)	pmol/min*mm	99.1	158
+Km (met alk)	mmol/L	33.9	158
+Vmax(met alk)	pmol/min*mm	223.8	158
+			
+rabbit CNT		-3.4	135
+			
+	pmol/min*mm	(early) 32.9	150
+		(early- amil) 6.5	150
+		(early-lo Cl) 29.2	150
+		(late) 10.7	150
+		(late- amil) 14.2	150
+		(late-lo Cl) 28.6	150
+			
+	pmol/min	(contr) 21	155
+		(Met Alk) 35	155
+		(Met Alk + NaCl) 12	155
+			
+	pmol/min*mm	(net) 7	157
+		(JH) 18	157
+		(HCO3 secr) 11	157
+			
+Urea	pmol/min*mm		
+PO4	pmol/min*mm		
+NH4	pmol/min*mm		
+		50% of LP flow reaches ED	
+		ED = LD NH4 flow	79
+		ED=0.5* LD NH4 flow	160
+	pmol/min	JNH4=20 	160
+			
+H	pmol/min*mm	Early=Late acidif	
+		of stationary drop	27
+		(flow=6nl/min) 22	156
+		(flow=15nl/min) 46	156
+			
+			
+Epithelial		Rat	
+Permeability		value	ref
+Pf	cm/s		
+Microperfusion	nl/min/mm	(early) 0.45	35
+lumen-162 mOsm	(late) 1.07	35
+Rabbit CNT	+/- ADH	not diff from zero	77
+			
+Na	cm/s		
+rabbit CNT		0.0000122	5
+			
+K	cm/s	10-X lumen K yields	
+		33 mV PD change	69
+		JK vs CS(K) shows high PK=1.5^-3	129
+			
+Cl	cm/s		
+			
+			
+PCl / PNa			
+			
+HCO3	cm/s	0.000023	29
+		0.000011	157
+		(flow =6 nl/min) 1.1E-5	156
+		(flow =15 nl/min) 3.8E-5	156
+			
+Urea	cm/s	0.00001	80
+			
+			
+PO4	cm/s		
+NH4	cm/s		
+NH3	cm/s		
+H	cm/s		
+			
+Conductance			
+Total	mS/cm2	(early) 6.8	34
+		(late) 16.1	34
+		(early) 2.6	108
+		(late) 4.0	108
+		6 -> 25 along DCT	37
+rabbit		(early) 9.5	71
+		46	163
+		32	5
+			
+Na	mS/cm2		
+gNa/gK		(early) 0.59 or 1.2	162
+		(late) 0.52 or 1.0	162
+K	mS/cm2		
+			
+Cl	mS/cm2		
+gNa / gCl		(early) 1.75	108
+		(late) 2.67	108
+		gCl ~ 0	73
+HCO3	mS/cm2		
+NH4	mS/cm2		
+H	mS/cm2		
+			
+Refl. Coeff.			
+Na			
+NaCl			
+K			
+Cl			
+HCO3			
+Urea			
+PO4			
+NH4			
+			
+Tight Junction		Rat	
+Permeability		value	ref
+Na	cm/s		
+K	cm/s		
+Cl	cm/s		
+HCO3	cm/s		
+Urea	cm/s		
+PO4	cm/s		
+NH4	cm/s		
+NH3	cm/s		
+H	cm/s		
+			
+Conductance			
+Total	mS/cm2		
+			
+			
+			
+			
+Na	mS/cm2		
+K	mS/cm2		
+Cl	mS/cm2		
+HCO3	mS/cm2		
+NH4	mS/cm2		
+H	mS/cm2		
+			
+DCT cell			
+			
+Na	mmol/l		
+DCT		15.5	15
+Connec		15.2	15
+DCT		14.7	16
+Connec		12.9	16
+Principal		12.4	16
+K	mmol/l		
+DCT		169	15
+Connec		172	15
+DCT		179	16
+Connec		186	16
+Principal		185	16
+Cl	mmol/l		
+DCT		12	15
+Connec		13.7	15
+DCT		12.5	16
+Connec		12.6	16
+Principal		12.9	16
+			
+HCO3	mmol/l		
+Urea	mmol/l		
+PO4	mmol/l		
+NH4	mmol/l		
+Buffer (no CO2)	mmol/l		
+			
+pH		(frog) 7.43	152
+		(frog - Aldo) 7.55	152
+			
+			
+cytosolic CA		low levels	26
+			
+			
+			
+			
+PD	mv		
+rabbit		(early) -86	71
+		-77.8	163
+rat		(early) -60	162
+		(late) -71	162
+			
+Apical Membr		Rat	
+Permeability		value	ref
+Pf	cm/s	AQP-2 in CNT	33
+			
+Na	cm/s		
+K	cm/s		
+			
+			
+			
+Cl	cm/s		
+HCO3	cm/s		
+Urea	cm/s		
+PO4	cm/s		
+NH4	cm/s		
+NH3	cm/s		
+			
+H	cm/s 		
+			
+Conductance			
+Total	mS/cm2		
+		gIS / gMI = 67	140
+rabbit		gIS / gMI = 3.5	163
+			
+			
+Na	mS/cm2		
+Connec. Seg.		Amil-Sens gNa	14
+rat	pA/cell (-80mV)	1180	55
+rabbit		gNa	163
+mouse		Both ENaC & NCC 	100
+K	mS/cm2		
+rabbit		tK=0.61	163
+			
+			
+Cl	mS/cm2		
+rabbit		DPC-sens gCl	139
+			
+HCO3	mS/cm2		
+NH4	mS/cm2		
+H	mS/cm2		
+			
+Cotransport		(frog) aldo-sens Na/H	116
+Early DCT		Na-Cl	14
+		TSC - Aldo induced	85
+		Na/H	150
+		Aldo incr pHi (frog)	152
+		No H,K-ATPase	26
+		2/3 - Na/H	26
+		1/3 - H+ - ATPase	26
+		Cl / Formate	147
+		TSC message	117
+		Km(Na) ~ Km(Cl)~ 6 mM	136
+Late DCT		No Na/H	26
+		Yes Na/H	50
+		No Na/H	150
+		?K-Cl 	45
+		K-Cl early &late	137
+		ENaC	101
+		Cl / HCO3 in alkalosis	94
+		Cl / HCO3	97
+		H,K-ATPase in K-defic	118
+		Beta cells in rabbit CNT	135
+			
+CNT-Rabbit		Apical H,K-ATPase	48
+CNT-Rabbit		Apical H,K-ATPase	146
+			
+CA-IV		absent	26
+			
+			
+Basal Membr		Rat	
+Permeability		value	ref
+Pf	cm/s		
+			
+Na	cm/s		
+K	cm/s	Kir7.1 (DCT & CT)	119
+			
+Cl	cm/s		
+HCO3	cm/s		
+Urea	cm/s 		
+PO4	cm/s		
+NH4	cm/s		
+NH3	cm/s 		
+			
+H	cm/s		
+			
+Conductance			
+Total	mS/cm2		
+amphiuma		fRa = 0.98	130
+			
+			
+			
+Na	mS/cm2		
+K	mS/cm2		
+rabbit		Nernstian gK	139
+		tK=0.83	140
+		tK=0.75	163
+amphiuma		tK=0.22	130
+frog		gK is pH -dependent	152
+			
+Cl	mS/cm2		
+amphiuma		tCl = 0.32	130
+rabbit		tCl = 0.16	163
+Mouse		ClC-K2	86
+HCO3	mS/cm2		
+amphiuma		tHCO3 = 0.44	130
+NH4	mS/cm2		
+H	mS/cm2		
+			
+Cotransport			
+amphiuma		Na - n(HCO3)	130
+		(?) Cl / HCO3	130
+			
+			
+			
+			
+			
+			
+			
+CA - IV		present	26
+			
+Na,K ATPase	pmol/mm/h		
+			
+
+
