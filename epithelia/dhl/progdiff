@@ -1,0 +1,10 @@
+diff ../ahl/comp.f comp.f > diffs/comp.diff
+diff ../ahl/pset.f pset.f > diffs/pset.diff
+diff ../ahl/gamset.f gamset.f > diffs/gamset.diff
+diff ../ahl/errvec.f errvec.f > diffs/errvec.diff
+diff ../ahl/aresul.f aresul.f > diffs/aresul.diff
+diff ../ahl/bresul.f bresul.f > diffs/bresul.diff
+diff ../ahl/cresul.f cresul.f > diffs/cresul.diff
+diff ../ahl/fresul.f fresul.f > diffs/fresul.diff
+diff ../ahl/ptim.f ptim.f > diffs/ptim.diff
+diff ../ahl/reset.f reset.f > diffs/reset.diff
