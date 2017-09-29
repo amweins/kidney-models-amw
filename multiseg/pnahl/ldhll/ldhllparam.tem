@@ -1,0 +1,38 @@
+    0  205  100   .1000D-08   .5000D+00
+   .1000D-02   .1000D+01   .6400D-05   .1450D+00   .4960D+02
+   .1000D-02   .1500D+01
+ 0.700   .4000D-01
+ 0.600   .7000D-01
+ 0.600   .6500D-01
+ 0.900   .1600D-01
+ 0.900   .1600D-01
+ 0.900   .1600D-01
+ 1.000   .3000D-02
+ 1.000   .3000D-02
+ 0.900   .4000D-01
+ 0.600   .6000D-01
+ 0.600   .1500D-01
+ 0.600   .1200D+01
+   .1000D+01   .1600D-02
+ 1.000   .0000D-00
+ 1.000   .0000D-00
+ 1.000   .0000D-00
+ 1.000   .0000D-00
+ 1.000   .1300D-02
+ 1.000   .1500D+00
+ 1.000   .0000D-00
+ 1.000   .0000D-00
+ 1.000   .4000D-04
+ 1.000   .1500D-01
+ 1.000   .0000D-00
+ 1.000   .2000D-01
+    0
+
+Notes:
+ LP splits water permeability nearly evenly.
+ TJ reflection coefficients are selected to 
+get overall NaCl 0.83 and KCl 0.80
+ Ionic conductance is solely TJ 
+    PK/PNa = 1.7;      PCl/PNa = 1.6
+    PNH4/PK = 0.20     PH/PK = 1.0       PHCO3/PCl = 0.25
+ Urea is split evenly between cell and TJ
