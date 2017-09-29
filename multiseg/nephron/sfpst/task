@@ -1,0 +1,11 @@
+cp bound.bai bailey
+mv lumen.bai bailey
+cp param.bai bailey
+cp pcrbai.f bailey
+mv ptpick.bai bailey
+mv ptwbai bailey
+mv ptwbai.dat bailey
+mv ptwbai.f bailey
+mv ptwbai.o bailey
+mv result.bai bailey
+mv xy.bai bailey
