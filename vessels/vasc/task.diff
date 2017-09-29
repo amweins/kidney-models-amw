@@ -1,0 +1,16 @@
+echo pset dvr > tmp
+diff mrdvr/mrdpset.f  ~/vr/mrdvr/mrdpset.f >> tmp
+echo pset avr >> tmp
+diff mravr/mrapset.f  ~/vr/mravr/mrapset.f >> tmp
+echo newt dvr >> tmp
+diff mrdvr/mrdnewt.f  ~/vr/mrdvr/mrdnewt.f >> tmp
+echo newt avr >> tmp
+diff mravr/mranewt.f  ~/vr/mravr/mranewt.f >> tmp
+echo flux dvr >> tmp
+diff mrdvr/mrdflux.f  ~/vr/mrdvr/mrdflux.f >> tmp
+echo flux avr >> tmp
+diff mravr/mraflux.f  ~/vr/mravr/mraflux.f >> tmp
+echo err dvr >> tmp
+diff mrdvr/mrderr.f  ~/vr/mrdvr/mrderr.f >> tmp
+echo err avr >> tmp
+diff mravr/mraerr.f  ~/vr/mravr/mraerr.f >> tmp
