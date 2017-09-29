@@ -1,0 +1,17 @@
+vi sfpct.f \
+ sfpctnewt.f \
+ sfpctgam.f \
+ sfpctpset.f \
+ sfpctptim.f \
+ sfpctflux.f \
+ sfpcterr.f \
+ sfpcterr.bac \
+ sfpcterr.cen \
+ sfpctresa.f \
+ sfpctresb.f \
+ sfpctresc.f \
+ sfpctresd.f \
+ sfpctresf.f \
+ sfpctpick.f \
+ sfpcreset.f \
+ sfpctqo2.f

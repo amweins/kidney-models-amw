@@ -1,0 +1,15 @@
+echo "sfpct"
+diff sfpct/sfpctparam.dat results.ver3/base_sf/sfpctparam.dat
+diff sfpct/sfpctbound.dat results.ver3/base_sf/sfpctbound.dat
+echo "sfpst"
+diff sfpst/sfpstparam.dat results.ver3/base_sf/sfpstparam.dat
+diff sfpst/sfpstbound.dat results.ver3/base_sf/sfpstbound.dat
+echo "sdhl"
+diff sdhl/sdhlparam.dat results.ver3/base_sf/sdhlparam.dat
+diff sdhl/sdhlbound.dat results.ver3/base_sf/sdhlbound.dat
+echo "ahlm"
+diff ahlm/ahlmparam.dat results.ver3/base_sf/ahlmparam.dat
+diff ahlm/ahlmbound.dat results.ver3/base_sf/ahlmbound.dat
+echo "ahlc"
+diff ahlc/ahlcparam.dat results.ver3/base_sf/ahlcparam.dat
+diff ahlc/ahlcbound.dat results.ver3/base_sf/ahlcbound.dat
