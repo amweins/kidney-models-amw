@@ -1,0 +1,340 @@
+F95 = gfortran
+
+FFLAGS	      = -g -w
+
+CFLAGS	      = 
+
+DEST	      = objects
+
+EXTHDRS	      =
+
+HDRS	      =
+
+INSTALL	      = install
+
+LD	      = gfortran
+
+LDFLAGS	      = 
+
+LIBS	      =
+
+MAKEFILE      = Makefile
+
+OBJS	      = objects/pn.o \
+		objects/nhe3.o \
+		objects/les8.o \
+		objects/hksub.o \
+		objects/ae1.o \
+		objects/tsc.o \
+		objects/nkcc.o \
+		objects/kcc.o \
+		objects/archive.o \
+ 		objects/sfpctnewt.o \
+ 		objects/sfpctgam.o \
+ 		objects/sfpctpset.o \
+ 		objects/sfpctptim.o \
+ 		objects/sfpctflux.o \
+ 		objects/sfpcterr.o \
+ 		objects/sfpctresa.o \
+ 		objects/sfpctresb.o \
+ 		objects/sfpctresc.o \
+ 		objects/sfpctresd.o \
+ 		objects/sfpctresf.o \
+ 		objects/sfpctpick.o \
+ 		objects/sfpcreset.o \
+ 		objects/sfpctqo2.o \
+		objects/sfpctorque.o \
+ 		objects/sfpstnewt.o \
+ 		objects/sfpstgam.o \
+ 		objects/sfpstpset.o \
+ 		objects/sfpstptim.o \
+ 		objects/sfpstflux.o \
+ 		objects/sfpsterr.o \
+ 		objects/sfpstresa.o \
+ 		objects/sfpstresb.o \
+ 		objects/sfpstresc.o \
+ 		objects/sfpstresd.o \
+ 		objects/sfpstresf.o \
+ 		objects/sfpstpick.o \
+ 		objects/sfpsreset.o \
+ 		objects/sfpstqo2.o \
+ 		objects/jmpctnewt.o \
+ 		objects/jmpctgam.o \
+ 		objects/jmpctpset.o \
+ 		objects/jmpctptim.o \
+ 		objects/jmpctflux.o \
+ 		objects/jmpcterr.o \
+ 		objects/jmpctresa.o \
+ 		objects/jmpctresb.o \
+ 		objects/jmpctresc.o \
+ 		objects/jmpctresd.o \
+ 		objects/jmpctresf.o \
+ 		objects/jmpctpick.o \
+ 		objects/jmpcreset.o \
+ 		objects/jmpctqo2.o \
+		objects/jmpctorque.o \
+ 		objects/jmpstnewt.o \
+ 		objects/jmpstgam.o \
+ 		objects/jmpstpset.o \
+ 		objects/jmpstptim.o \
+ 		objects/jmpstflux.o \
+ 		objects/jmpsterr.o \
+ 		objects/jmpstresa.o \
+ 		objects/jmpstresb.o \
+ 		objects/jmpstresc.o \
+ 		objects/jmpstresd.o \
+ 		objects/jmpstresf.o \
+ 		objects/jmpstpick.o \
+ 		objects/jmpsreset.o \
+ 		objects/jmpstqo2.o \
+ 		objects/sdhlnewt.o \
+ 		objects/sdhlgam.o \
+ 		objects/sdhlpset.o \
+ 		objects/sdhlptim.o \
+ 		objects/sdhlflux.o \
+ 		objects/sdhlerr.o \
+ 		objects/sdhlresa.o \
+ 		objects/sdhlresb.o \
+ 		objects/sdhlresc.o \
+ 		objects/sdhlresd.o \
+ 		objects/sdhlresf.o \
+ 		objects/sdhlpick.o \
+ 		objects/sdhlreset.o \
+ 		objects/ldhlunewt.o \
+ 		objects/ldhlugam.o \
+ 		objects/ldhlupset.o \
+ 		objects/ldhluptim.o \
+ 		objects/ldhluflux.o \
+ 		objects/ldhluerr.o \
+ 		objects/ldhluresa.o \
+ 		objects/ldhluresb.o \
+ 		objects/ldhluresc.o \
+ 		objects/ldhluresd.o \
+ 		objects/ldhluresf.o \
+ 		objects/ldhlupick.o \
+ 		objects/ldhlureset.o \
+ 		objects/ldhllnewt.o \
+ 		objects/ldhllgam.o \
+ 		objects/ldhllpset.o \
+ 		objects/ldhllptim.o \
+ 		objects/ldhllflux.o \
+ 		objects/ldhllerr.o \
+ 		objects/ldhllresa.o \
+ 		objects/ldhllresb.o \
+ 		objects/ldhllresc.o \
+ 		objects/ldhllresd.o \
+ 		objects/ldhllresf.o \
+ 		objects/ldhllpick.o \
+ 		objects/ldhllreset.o \
+ 		objects/tahlnewt.o \
+ 		objects/tahlgam.o \
+ 		objects/tahlpset.o \
+ 		objects/tahlptim.o \
+ 		objects/tahlflux.o \
+ 		objects/tahlerr.o \
+ 		objects/tahlresa.o \
+ 		objects/tahlresb.o \
+ 		objects/tahlresc.o \
+ 		objects/tahlresd.o \
+ 		objects/tahlresf.o \
+ 		objects/tahlpick.o \
+ 		objects/tahlreset.o \
+ 		objects/ahlmnewt.o \
+ 		objects/ahlmgam.o \
+ 		objects/ahlmpset.o \
+ 		objects/ahlmptim.o \
+ 		objects/ahlmflux.o \
+ 		objects/ahlmerr.o \
+ 		objects/ahlmresa.o \
+ 		objects/ahlmresb.o \
+ 		objects/ahlmresc.o \
+ 		objects/ahlmresd.o \
+ 		objects/ahlmresf.o \
+ 		objects/ahlmpick.o \
+ 		objects/ahlmreset.o \
+ 		objects/ahlcnewt.o \
+ 		objects/ahlcgam.o \
+ 		objects/ahlcpset.o \
+ 		objects/ahlcptim.o \
+ 		objects/ahlcflux.o \
+ 		objects/ahlcerr.o \
+ 		objects/ahlcresa.o \
+ 		objects/ahlcresb.o \
+ 		objects/ahlcresc.o \
+ 		objects/ahlcresd.o \
+ 		objects/ahlcresf.o \
+ 		objects/ahlcpick.o \
+ 		objects/ahlcreset.o 
+
+PRINT	      = pr
+
+PROGRAM       = pn
+
+SHELL	      = /bin/sh
+
+SRCS	      = pn.f \
+		trnspts/nhe3.f \
+		les8.f \
+		trnspts/hksub.f \
+		trnspts/ae1.f \
+		trnspts/tsc.f \
+		trnspts/nkcc.f \
+		trnspts/kcc.f \
+		archive.f \
+ 		sfpct/sfpctnewt.f \
+ 		sfpct/sfpctgam.f \
+ 		sfpct/sfpctpset.f \
+ 		sfpct/sfpctptim.f \
+ 		sfpct/sfpctflux.f \
+ 		sfpct/sfpcterr.f \
+ 		sfpct/sfpctresa.f \
+ 		sfpct/sfpctresb.f \
+ 		sfpct/sfpctresc.f \
+ 		sfpct/sfpctresd.f \
+ 		sfpct/sfpctresf.f \
+ 		sfpct/sfpctpick.f \
+ 		sfpct/sfpcreset.f \
+ 		sfpct/sfpctqo2.f \
+		sfpct/sfpctorque.f \
+ 		sfpst/sfpstnewt.f \
+ 		sfpst/sfpstgam.f \
+ 		sfpst/sfpstpset.f \
+ 		sfpst/sfpstptim.f \
+ 		sfpst/sfpstflux.f \
+ 		sfpst/sfpsterr.f \
+ 		sfpst/sfpstresa.f \
+ 		sfpst/sfpstresb.f \
+ 		sfpst/sfpstresc.f \
+ 		sfpst/sfpstresd.f \
+ 		sfpst/sfpstresf.f \
+ 		sfpst/sfpstpick.f \
+ 		sfpst/sfpsreset.f \
+ 		sfpst/sfpstqo2.f \
+ 		jmpct/jmpctnewt.f \
+ 		jmpct/jmpctgam.f \
+ 		jmpct/jmpctpset.f \
+ 		jmpct/jmpctptim.f \
+ 		jmpct/jmpctflux.f \
+ 		jmpct/jmpcterr.f \
+ 		jmpct/jmpctresa.f \
+ 		jmpct/jmpctresb.f \
+ 		jmpct/jmpctresc.f \
+ 		jmpct/jmpctresd.f \
+ 		jmpct/jmpctresf.f \
+ 		jmpct/jmpctpick.f \
+ 		jmpct/jmpcreset.f \
+ 		jmpct/jmpctqo2.f \
+		jmpct/jmpctorque.f \
+ 		jmpst/jmpstnewt.f \
+ 		jmpst/jmpstgam.f \
+ 		jmpst/jmpstpset.f \
+ 		jmpst/jmpstptim.f \
+ 		jmpst/jmpstflux.f \
+ 		jmpst/jmpsterr.f \
+ 		jmpst/jmpstresa.f \
+ 		jmpst/jmpstresb.f \
+ 		jmpst/jmpstresc.f \
+ 		jmpst/jmpstresd.f \
+ 		jmpst/jmpstresf.f \
+ 		jmpst/jmpstpick.f \
+ 		jmpst/jmpsreset.f \
+ 		jmpst/jmpstqo2.f \
+ 		sdhl/sdhlnewt.f \
+ 		sdhl/sdhlgam.f \
+ 		sdhl/sdhlpset.f \
+ 		sdhl/sdhlptim.f \
+ 		sdhl/sdhlflux.f \
+ 		sdhl/sdhlerr.f \
+ 		sdhl/sdhlresa.f \
+ 		sdhl/sdhlresb.f \
+ 		sdhl/sdhlresc.f \
+ 		sdhl/sdhlresd.f \
+ 		sdhl/sdhlresf.f \
+ 		sdhl/sdhlpick.f \
+ 		sdhl/sdhlreset.f \
+ 		ldhlu/ldhlunewt.f \
+ 		ldhlu/ldhlugam.f \
+ 		ldhlu/ldhlupset.f \
+ 		ldhlu/ldhluptim.f \
+ 		ldhlu/ldhluflux.f \
+ 		ldhlu/ldhluerr.f \
+ 		ldhlu/ldhluresa.f \
+ 		ldhlu/ldhluresb.f \
+ 		ldhlu/ldhluresc.f \
+ 		ldhlu/ldhluresd.f \
+ 		ldhlu/ldhluresf.f \
+ 		ldhlu/ldhlupick.f \
+ 		ldhlu/ldhlureset.f \
+ 		ldhll/ldhllnewt.f \
+ 		ldhll/ldhllgam.f \
+ 		ldhll/ldhllpset.f \
+ 		ldhll/ldhllptim.f \
+ 		ldhll/ldhllflux.f \
+ 		ldhll/ldhllerr.f \
+ 		ldhll/ldhllresa.f \
+ 		ldhll/ldhllresb.f \
+ 		ldhll/ldhllresc.f \
+ 		ldhll/ldhllresd.f \
+ 		ldhll/ldhllresf.f \
+ 		ldhll/ldhllpick.f \
+ 		ldhll/ldhllreset.f \
+ 		tahl/tahlnewt.f \
+ 		tahl/tahlgam.f \
+ 		tahl/tahlpset.f \
+ 		tahl/tahlptim.f \
+ 		tahl/tahlflux.f \
+ 		tahl/tahlerr.f \
+ 		tahl/tahlresa.f \
+ 		tahl/tahlresb.f \
+ 		tahl/tahlresc.f \
+ 		tahl/tahlresd.f \
+ 		tahl/tahlresf.f \
+ 		tahl/tahlpick.f \
+ 		tahl/tahlreset.f \
+ 		ahlm/ahlmnewt.f \
+ 		ahlm/ahlmgam.f \
+ 		ahlm/ahlmpset.f \
+ 		ahlm/ahlmptim.f \
+ 		ahlm/ahlmflux.f \
+ 		ahlm/ahlmerr.f \
+ 		ahlm/ahlmresa.f \
+ 		ahlm/ahlmresb.f \
+ 		ahlm/ahlmresc.f \
+ 		ahlm/ahlmresd.f \
+ 		ahlm/ahlmresf.f \
+ 		ahlm/ahlmpick.f \
+ 		ahlm/ahlmreset.f \
+ 		ahlc/ahlcnewt.f \
+ 		ahlc/ahlcgam.f \
+ 		ahlc/ahlcpset.f \
+ 		ahlc/ahlcptim.f \
+ 		ahlc/ahlcflux.f \
+ 		ahlc/ahlcerr.f \
+ 		ahlc/ahlcresa.f \
+ 		ahlc/ahlcresb.f \
+ 		ahlc/ahlcresc.f \
+ 		ahlc/ahlcresd.f \
+ 		ahlc/ahlcresf.f \
+ 		ahlc/ahlcpick.f \
+ 		ahlc/ahlcreset.f 
+
+all:		$(PROGRAM)
+
+$(PROGRAM):     $(OBJS) $(LIBS)
+		@echo "Linking $(PROGRAM) ..."
+		@$(LD) $(LDFLAGS) $(OBJS) $(LIBS) -o $(PROGRAM)
+		@echo "done"
+
+$(OBJS):	$(SRCS)
+		gfortran -c $(FFLAGS) $(SRCS); mv *.o ./objects   
+
+clean:;		@rm -f $(OBJS) core
+
+clobber:;	@rm -f $(OBJS) $(PROGRAM) core tags
+
+install:	$(PROGRAM)
+		echo Installing $(PROGRAM) in $(DEST)
+		if [ $(DEST) != . ]; then \
+		(rm -f $(DEST)/$(PROGRAM); $(INSTALL) -f $(DEST) $(PROGRAM)); fi
+
+

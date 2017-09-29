@@ -1,0 +1,30 @@
+echo "sfpct" > param.diffs
+diff sfpct/sfpctparam.tem ../pnahl/sfpct/sfpctparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "sfpst" >> param.diffs
+diff sfpst/sfpstparam.tem ../pnahl/sfpst/sfpstparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "jmpct" >> param.diffs
+diff jmpct/jmpctparam.tem ../pnahl/jmpct/jmpctparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "jmpst" >> param.diffs
+diff jmpst/jmpstparam.tem ../pnahl/jmpst/jmpstparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "shdl" >> param.diffs
+diff sdhl/sdhlparam.tem ../pnahl/sdhl/sdhlparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "ahlm" >> param.diffs
+diff ahlm/ahlmparam.tem ../pnahl/ahlm/ahlmparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "ahlc" >> param.diffs
+diff ahlc/ahlcparam.tem ../pnahl/ahlc/ahlcparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "lhdlu" >> param.diffs
+diff ldhlu/ldhluparam.tem ../pnahl/ldhlu/ldhluparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "lhdll" >> param.diffs
+diff ldhll/ldhllparam.tem ../pnahl/ldhll/ldhllparam.tem >> param.diffs
+echo " " >> param.diffs
+echo "tahl" >> param.diffs
+diff tahl/tahlparam.tem ../pnahl/tahl/tahlparam.tem >> param.diffs
+
