@@ -103,3 +103,11 @@ the parameter set, defining its permeabilities.
 	imavr-	inner medullary ascending vasa recta 
 	mrdvr-	medullary ray descending vasa recta 
 	mravr-	medullary ray ascending vasa recta 
+
+
+Kidney:  Here is the integrated full kidney model, comprised of nephron plus all of the vascular components. 
+The task of this model is to solve for medullary conditions (outer medulla, inner medulla, and medullary ray)
+which satisfy the conservation relations between segmental and vascular fluxes.  The top directory reads in
+initial guesses and model parameters, and allows for sub-problems to be solved (either a subset of the model solutes, 
+or a single region).  Generally, it is best to solve the problem first for the important solutes (e.g. Na, K, Cl, urea),
+and then to use that solution as a guess for expansion to hydrostatic pressures and the acid-base variables.

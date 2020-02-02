@@ -112,3 +112,35 @@
    ./epithelia/dhl
    ./epithelia/imct
    ./epithelia
+
+   ./kidney
+   ./kidney/nephron
+   ./kidney/nephron/ahlc
+   ./kidney/nephron/ahlm
+   ./kidney/nephron/cct
+   ./kidney/nephron/cnt
+   ./kidney/nephron/dct
+   ./kidney/nephron/imct
+   ./kidney/nephron/jmpct
+   ./kidney/nephron/jmpst
+   ./kidney/nephron/ldhll
+   ./kidney/nephron/ldhlu
+   ./kidney/nephron/mixing
+   ./kidney/nephron/omct
+   ./kidney/nephron/ompct
+   ./kidney/nephron/sdhl
+   ./kidney/nephron/sfpct
+   ./kidney/nephron/sfpst
+   ./kidney/nephron/tahl
+   ./kidney/nephron/trnspts
+   ./kidney/objects
+   ./kidney/vasc
+   ./kidney/vasc/imavr
+   ./kidney/vasc/imdvr
+   ./kidney/vasc/mravr
+   ./kidney/vasc/mrdvr
+   ./kidney/vasc/objects
+   ./kidney/vasc/oiavr
+   ./kidney/vasc/oidvr
+   ./kidney/vasc/omavr
+   ./kidney/vasc/omdvr
