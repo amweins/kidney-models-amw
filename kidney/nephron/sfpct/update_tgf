@@ -1,0 +1,24 @@
+90a85
+> C	RMT0=1.25D-3
+116c111,112
+< 	RM(1,T)=RM0*(1.0 + MUR*(PM(1,T)-PS(1,T)))
+---
+> C	RM(1,T)=RM0*(1.0 + MUR*(PM(1,T)-PS(1,T)))
+> 	RM(1,T)=RM0*(1.0 + 0.5*DTANH(MUR*(PM(1,T)-PS(1,T))))
+124c120
+<      1   (1.0 + (MVL+MVD)/RMT0 + 0.5*(MVL/RMT0)**2)*MUM
+---
+>      1   (1.0 + (MVL+MVD)/RMT0 + 0.5*(MVL/RMT0)**2)*ETA
+126c122
+<      1   (1.0 + (MVL+MVD)/RM(1,T) + 0.5*(MVL/RM(1,T))**2)*MUM
+---
+>      1   (1.0 + (MVL+MVD)/RM(1,T) + 0.5*(MVL/RM(1,T))**2)*ETA
+134c130,131
+< 	RM(X,T)=RM0*(1.0 + MUR*(PM(X,T)-PS(X,T)))
+---
+> C	RM(X,T)=RM0*(1.0 + MUR*(PM(X,T)-PS(X,T)))
+> 	RM(X,T)=RM0*(1.0 + 0.5*DTANH(MUR*(PM(X,T)-PS(X,T))))
+137c134
+<      1   (1.0 + (MVL+MVD)/RM(X,T) + 0.5*(MVL/RM(X,T))**2)*MUM
+---
+>      1   (1.0 + (MVL+MVD)/RM(X,T) + 0.5*(MVL/RM(X,T))**2)*ETA
