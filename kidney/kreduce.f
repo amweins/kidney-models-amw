@@ -1,0 +1,423 @@
+	SUBROUTINE KREDUCE(IN,IG,IP,NSLC,KSLC,NTGF,NVOL,KVOL,NSOL,KSOL)
+C
+C PROGRAM TO REDUCE THE NUMBER OF GAMMA AND PHI FROM NN TO IN
+C   IG AND IP HOLD IN-LENGTH INTEGER VECTORS OF THE SELECTED GAMMA (VARIABLES) AND PHI (ERRORS)
+C
+C FOR THE BASELINE CONFIRGURATION:
+C  SLICE DEMARCATIONS AT 0 - 7 MM FROM OM TO PAPILLA
+C Interstitial unknows are pressure and concentration at 3 points in OM, 5 points
+C  in IM, and two points in MR.  The x=0 point in OM abuts PST; there is a second
+C  x=0 point in OM that is identified with MR=2mm, and this abuts AHL and OMCD.
+C  Within MR, the x=0 point abuts AHLc and CCD.
+C
+C LOCAL VARIABLES
+C
+        INTEGER SOLS,SLICE,IG(250),IP(250),
+     1   NSLC,KSLC(8),NTGF,NVOL,KVOL(15),NSOL,KSOL(15)
+	CHARACTER*5 SWTGF,SWVOL,VNAME,SOL(15),
+     1   NIL,VMAT(16,8)
+C
+C KEY TO INDICES:
+C  6 nephrons: SF (INEPH = 1) plus 5 JM (INEPH = 2-6)
+C    SFPCT and SFPST in series with SDHL
+C    JMPCT and JMPST in series with LDHLu and LDHLl
+C  LDHLu will be restricted to OM and LDHLl to IM
+C
+C Segment numbers (ISEG)
+C      1- PCT
+C      2- PST
+C      3- sDHL, lDHLu
+C      4- lDHLl
+C      5- tAHL
+C      6- AHLm
+C      7- AHLc
+C      8- DCT
+C      9- CNT
+C      10-CCD
+C      11-OMCD
+C      12-IMCD
+C
+C TGF VARIABLES: STARTING WITH THE BASELINE SNGFR, 
+C   IT IS ADJUSTED ACCORDING TO MACULA DENSA CELL [CL-] 
+C INITIAL PT PRESSURE IS ADJUSTED ACCORDING TO A DISTAL NEPHRON RESISTANCE
+C
+C	TGGAM-	TG FEEDBACK VARIABLE (CHANGE IN FV)
+C               1-      SF FVM(1)/FVM0(1)
+C               2-      SF PM(1)
+C               2J-1-   JM FVM(1)/FVM0(2), J=2,6
+C               2J-     JM PM(1)
+C               13-     CNT PM(1)
+C	TGPHI-	TG FEEDBACK RELATION
+C               2J-1-   TGF RELATIONS, J=1,6
+C         TGPHI(2J-1) = FVM(0) - AFVM - (DFVM / DMDCL) * [MDCL - CIAHL]
+C               2J-     MATCHING PRESSURES AT CNT ENTRY 
+C         TGPHI(2J) = PM-END-DCT = PM-CNT
+C  xxx          13-     IMCD PM(L)=0 mmHg   - This did not work
+C         TGPHI(13) = CNT PM(1) - DNR*FVMCNT
+C	TGEPSI-	TG FEEDBACK ERROR
+C	TGDERIV-	TG FEEDBACK JACOBIAN 
+C	TGDGAM-	TG FEEDBACK VARIABLE INCREMENT
+C	TGDELG-	TG FEEDBACK VARIABLE NEWTON CORRECTION
+C
+C VASC:
+C
+C PROGRAM TO BUILD A VAS RECTUM:
+C   OUTER MEDULLARY 1,2, descending 1 or 2 mm; 
+C   INNER MEDULLARY 3,7, descending 1,...,5 mm into IM;
+C   AND MEDULLARY RAY, 8, 2 mm in length.
+C  NOTE THAT OMDVR FEEDING IMDVR IS DIFFERENT FROM OMDVR WHICH TURNS IN OM
+C
+C FOR THE BASELINE CONFIRGURATION:
+C  SLICE DEMARCATIONS AT 0 - 7 MM FROM OM TO PAPILLA
+C  THE INITIAL POINT AT 0 MM CORRESPONDS TO A SINGLE MR SLICE, 2MM IN THICKNESS
+C Interstitial unknows are pressure and concentration at 2 points in OM, 5 points
+C  in IM, and one point in MR.  The x=0 point in OM abuts PST; there is a second
+c  x=0 point in OM that is identified with MR=2mm, and this abuts AHL and OMCD.
+C The points MR(1) and OM(1) will be assigned cortical concentrations, so there
+C  are a total of 8 sets of IS unknowns.
+C
+C                                       MR(1)
+C
+C                                       MR(2)
+C                _____________________________________ (continuity MR->OM)
+C                        OM(1)          MR(2)
+C                             \        /
+C                             OM(2)=MR(3)
+C                             OM(3)=MR(4)
+C                _____________________________________ (continuity OM->IM)
+C                                OM(3)
+C                                IM(1)
+C                                 ...
+C                                IM(5)
+C
+C  SOLUTE INDEX:
+C	1-	NA+
+C	2-	K+
+C	3-	CL-
+C	4-	HCO3-
+C	5-	H2CO3
+C	6-	CO2
+C	7-	HPO4--
+C	8-	H2PO4-
+C	9-	UREA
+C	10-	NH3
+C	11-	NH4+
+C	12-	H+
+C	13-	HCO2-
+C	14-	H2CO2
+C	15-	GLUC
+C
+C
+C READ THE GUESSES AT THE SLICE LEVELS: MR(1-2), OM(1-3), IM(1-5)
+C   RECALL THAT MR(1) AND OM(1) ARE BOTH EQUAL TO CORTICAL VALUES
+C
+C        READ(14,20) (TGGAM(J),J=1,13)
+C   20   FORMAT(D30.20)
+C
+C        READ (301,28) (PSGAM(K),K=1,SLICE+2)
+C        DO 22 J=1,11
+C   22   READ (301,28) (CSGAM(J,K),K=1,SLICE+2)
+C        DO 24 J=13,15
+C   24   READ (301,28) (CSGAM(J,K),K=1,SLICE+2)
+C   28   FORMAT(10D16.8)
+C
+C        DO 34 K=1,SLICE+2
+C	LCHS(K)=PKC + DLOG10(CSGAM(4,K)/CSGAM(5,K))
+C	CSGAM(12,K)=10.**(-LCHS(K))
+C
+C
+C INITIAL LOAD OF THE GAMMA ARRAY
+C
+C        DO 42 K=1,13
+C   42   GAMMA(K)=TGGAM(K)
+C        DO 44 K=1,SLICE-1
+C   44   GAMMA(13+K)=PSGAM(3+K)
+C        GAMMA(13+SLICE)=PSGAM(2)
+C        DO 48 K=1,SLICE-1
+C        DO 47 J=1,SOLS
+C   47   GAMMA(13+SLICE+(K-1)*SOLS+J)=CSGAM(J,3+K)*GSCAL(J)
+C   48   CONTINUE
+C        DO 49 J=1,SOLS
+C   49   GAMMA(13+SLICE+(SLICE-1)*SOLS+J)=CSGAM(J,2)*GSCAL(J)
+C
+C
+C PHI FROM KERR.F
+C
+C Index ISLC runs OM -> IM, and then ISLC = 8 is MR
+C
+C        DO 20 ISLC=1,SLICE
+C        SRCV(ISLC)= -(MEDJVMS(ISLC)+MEDJVCS(ISLC))
+C        DO 15 ISOL=1,SOLS
+C        SRCK(ISOL,ISLC)= -(MEDJKMS(ISOL,ISLC)+MEDJKCS(ISOL,ISLC))
+C   15   CONTINUE
+C   20   CONTINUE
+C
+C        DO 30 I=1,13
+C   30   PHI(I)=TGPHI(I)
+C
+C   MASS CONSERVATION IN THE STEADY-STATE CASE
+C
+C        DO 40 ISLC=1,SLICE
+C   40   PHI(13+ISLC)=SRCV(ISLC)
+C
+C        DO 50 ISLC=1,SLICE
+C        DO 45 ISOL=1,SOLS
+C        PHI(21+(ISLC-1)*SOLS+ISOL)=SRCK(ISOL,ISLC)
+C   45   CONTINUE
+C   50   CONTINUE
+C
+C   THE ERROR TERM FOR PROTON GENERATION IS REPLACED BY CONSERVATION
+C   OF CHARGE IN THE BUFFER REACTIONS FOR SOLUTES 4,7,10,12 AND 13.
+C
+C        DO 60 ISLC=1,SLICE
+C        PHI(21+(ISLC-1)*SOLS+12)= ...
+C   60   CONTINUE
+C
+C   TOTAL CO2, PHOSPHATE, AMMONIA, AND FORMATE  CONTENT:
+C
+C        DO 70 ISLC=1,SLICE
+C        PHI(21+(ISLC-1)*SOLS+4)=...
+C        PHI(21+(ISLC-1)*SOLS+7)=...
+C        PHI(21+(ISLC-1)*SOLS+10)=...
+C        PHI(21+(ISLC-1)*SOLS+13)=...
+C   70   CONTINUE
+C
+C   CO2, PHOSPHATE, AMMMONIA, AND FORMATE PH EQUILIBRIUM
+C EQUILIBRIUM HYDRATION AND DHYDRATION OF CO2 - OTHERWISE WILL NEED IS CROSS-SECTIONS
+C      Will need to be sure that CSOM, CSIM, and CSMR are all up to date
+C
+C        KOM=OMCHOP/2
+C        DO 72 ISLC=1,2
+C        IX=ISLC*KOM+1
+C        PHI(21+(ISLC-1)*SOLS+5)=...
+C        PHI(21+(ISLC-1)*SOLS+8)=...
+C        PHI(21+(ISLC-1)*SOLS+11)=...
+C        PHI(21+(ISLC-1)*SOLS+14)=...
+C
+C        PHI(21+(ISLC-1)*SOLS+6) = KHY*CSOM(6,IX,1) - KDHY*CSOM(5,IX,1)
+C   72   CONTINUE
+C
+C        KIM=IMCHOP/5
+C        DO 74 ISLC=3,7
+C        IX=(ISLC-2)*KIM+1
+C        PHI(21+(ISLC-1)*SOLS+5)=...
+C        PHI(21+(ISLC-1)*SOLS+8)=...
+C        PHI(21+(ISLC-1)*SOLS+11)=...
+C        PHI(21+(ISLC-1)*SOLS+14)=...
+C
+C        PHI(21+(ISLC-1)*SOLS+6) = KHY*CSIM(6,IX,1) - KDHY*CSIM(5,IX,1)
+C   74   CONTINUE
+C
+C        ISLC=SLICE
+C        IX=MRCHOP+1
+C        PHI(21+(ISLC-1)*SOLS+5)=...
+C        PHI(21+(ISLC-1)*SOLS+8)=...
+C        PHI(21+(ISLC-1)*SOLS+11)=...
+C        PHI(21+(ISLC-1)*SOLS+14)=...
+C
+C        PHI(21+(ISLC-1)*SOLS+6) = KHY*CSMR(6,IX,1) - KDHY*CSMR(5,IX,1)
+C
+C ASSIGN MODEL PARAMETERS, INCLUDING CORTICAL IS PRESSURE AND SOLUTE CONCENTRATIONS
+C  CORTICAL CONDITIONS ARE READ AS PSMR(1,1) AND CSMR(I,1,1)
+C    WHICH ARE ALSO EQUAL TO PSOM(1,1) AND CSOM(I,1,1)
+C
+        SOLS=15
+        SLICE=8
+        NN=13+SLICE+SLICE*SOLS
+C
+	SOL(1)='  NA '
+	SOL(2)='  K  '
+	SOL(3)='  CL '
+	SOL(4)=' HCO3'
+	SOL(5)='H2CO3'
+	SOL(6)=' CO2 '
+	SOL(7)=' HPO4'
+	SOL(8)='H2PO4'
+	SOL(9)=' UREA'
+	SOL(10)=' NH3 '
+	SOL(11)=' NH4 '
+	SOL(12)='  H  '
+	SOL(13)=' HCO2'
+	SOL(14)='H2CO2'
+	SOL(15)=' GLUC'
+        NIL='  -  '
+        DO 2 ISOL=1,SOLS+1
+        DO 2 ISLC=1,SLICE
+    2   VMAT(ISOL,ISLC)=NIL
+C
+C
+C ALLOW FOR 'SUBPROBLEMS" IN WHICH A SUBSET OF THE NN GAMMA AND PHI ARE SELECTED
+C  
+    5   PRINT 10
+   10   FORMAT(' ARE TGF VARIABLES INCLUDED?  (y,n): ',$)
+        READ *, SWTGF
+        IF (SWTGF.EQ.'y') THEN
+        NTGF=13
+        ELSE
+        NTGF=0
+        ENDIF
+C
+        PRINT 20
+  20    FORMAT(' HOW MANY SLICE VARIABLES? ',$)
+        READ *, NSLC
+        IF (NSLC.EQ.0) THEN 
+         GO TO 60
+        ELSE IF (NSLC.EQ.SLICE) THEN
+         DO 22 ISLC=1,SLICE
+  22     KSLC(ISLC)=ISLC
+        ELSE
+         DO 24 ISLC=1,NSLC
+         PRINT 23, ISLC
+  23     FORMAT(' SLICE #',I1,' = ',$)
+  24     READ *, KSLC(ISLC)
+        ENDIF
+C
+        PRINT 30
+  30    FORMAT(' IS PRESSURE A VARIABLE?  (y,n): ',$)
+        READ *, SWVOL
+        IF (SWVOL.EQ.'y') THEN
+         PRINT 32, NSLC, SLICE
+  32     FORMAT(' AT ',I1,' OR ',I1,' SLICES: ',$)
+         READ *, NVOL
+         IF (NVOL.EQ.SLICE) THEN
+          DO 34 IVOL=1,SLICE
+  34      KVOL(IVOL)=IVOL
+         ELSE
+          DO 36 IVOL=1,NVOL
+  36      KVOL(IVOL)=KSLC(IVOL)
+         ENDIF
+        ELSE
+        NVOL=0
+        ENDIF
+C
+        PRINT 40
+  40    FORMAT(' HOW MANY SOLUTES? ',$)
+        READ *, NSOL
+        IF (NSOL.EQ.0) THEN 
+         GO TO 60
+        ELSE IF (NSOL.EQ.SOLS) THEN
+         DO 42 ISOL=1,SOLS
+  42     KSOL(ISOL)=ISOL
+        ELSE
+  43     DO 48 ISOL=1,NSOL
+         PRINT 44, ISOL
+  44     FORMAT(' SPECIES #',I2,' = ',$)
+         READ *, VNAME
+C
+	IF(VNAME.EQ.'na') THEN
+	 KSOL(ISOL)=1
+	ELSE IF(VNAME.EQ.'k') THEN
+	 KSOL(ISOL)=2
+	ELSE IF(VNAME.EQ.'cl') THEN
+	 KSOL(ISOL)=3
+	ELSE IF(VNAME.EQ.'hco3') THEN
+	 KSOL(ISOL)=4
+	ELSE IF(VNAME.EQ.'h2co3') THEN
+	 KSOL(ISOL)=5
+	ELSE IF(VNAME.EQ.'co2') THEN
+	 KSOL(ISOL)=6
+	ELSE IF(VNAME.EQ.'hpo4') THEN
+	 KSOL(ISOL)=7
+	ELSE IF(VNAME.EQ.'h2po4') THEN
+	 KSOL(ISOL)=8
+	ELSE IF(VNAME.EQ.'urea') THEN
+	 KSOL(ISOL)=9
+	ELSE IF(VNAME.EQ.'nh3') THEN
+	 KSOL(ISOL)=10
+	ELSE IF(VNAME.EQ.'nh4') THEN
+	 KSOL(ISOL)=11
+	ELSE IF(VNAME.EQ.'h') THEN
+	 KSOL(ISOL)=12
+	ELSE IF(VNAME.EQ.'hco2') THEN
+	 KSOL(ISOL)=13
+	ELSE IF(VNAME.EQ.'h2co2') THEN
+	 KSOL(ISOL)=14
+	ELSE IF(VNAME.EQ.'gluc') THEN
+	 KSOL(ISOL)=15
+	ELSE
+	PRINT 45
+   45   FORMAT (' NO SUCH SPECIES, TRY AGAIN')
+	GO TO 43
+	ENDIF
+C
+   48   CONTINUE
+        ENDIF
+C
+C
+   60   IN = NTGF + NVOL + NSLC*NSOL
+        IF (IN.EQ.0) THEN
+        PRINT 62
+   62   FORMAT(' NO VARIABLES CHOSEN')
+        GO TO 5
+        ELSE
+        ENDIF
+C
+        IF (SWTGF.EQ.'y') THEN
+        DO 70 ITGF=1,NTGF
+   70   IG(ITGF)=ITGF
+        IF (NSLC.EQ.0) GO TO 100
+        ELSE 
+        ENDIF
+C
+        IF (SWVOL.EQ.'y') THEN
+        DO 80 IVOL=1,NVOL
+   80   IG(NTGF+IVOL)=13+KVOL(IVOL)
+        IF (NSOL.EQ.0) GO TO 100
+        ELSE
+        ENDIF
+C
+        DO 90 ISLC=1,NSLC
+        DO 90 ISOL=1,NSOL
+        IG(NTGF+NVOL+(ISLC-1)*NSOL+ISOL)=
+     1    13+SLICE+(KSLC(ISLC)-1)*SOLS+KSOL(ISOL)
+   90   CONTINUE
+C
+C
+  100   DO 101 I=1,IN
+  101   IP(I)=IG(I)
+C
+        IF(NTGF.EQ.0) THEN
+        PRINT 102, (NIL,ITGF=1,13)
+        WRITE(304,102) (NIL,ITGF=1,13)
+  102   FORMAT(2X,8(7X,A5),/,2X,5(7X,A5))
+        ELSE
+        PRINT 104, (ITGF,ITGF=1,13)
+        WRITE(304,104) (ITGF,ITGF=1,13)
+  104   FORMAT(2X,8(9X,I3),/,2X,5(9X,I3))
+        ENDIF
+C
+C FIRST PRINT ALL OF THE IG(XX) VARIABLES INTO THE VMAT MATRIX
+C   VOLUME ALONG THE FIRST ROW, THEN SOLUTES IN ROWS 2-16
+C
+        IF(NSLC.EQ.0) GO TO 150
+        IF(NVOL.EQ.0) GO TO 120
+        DO 110 IVOL=1,NVOL
+  110   WRITE(VMAT(1,KVOL(IVOL)),105) 13+KVOL(IVOL)
+  105   FORMAT(I5)
+C
+  120   IF(NSOL.EQ.0) GO TO 150
+        DO 130 ISLC=1,NSLC
+        DO 125 ISOL=1,NSOL
+  125   WRITE(VMAT(1+KSOL(ISOL),KSLC(ISLC)),105) 
+     1    IG(NTGF+NVOL+(ISLC-1)*NSOL+ISOL)
+  130   CONTINUE
+C
+  150   CONTINUE
+        PRINT 152, (ISLC, ISLC=1,SLICE)
+        WRITE(304,152) (ISLC, ISLC=1,SLICE)
+  152   FORMAT(/,2X,'SLICE',4X,8(I3,9X),/)
+        PRINT 154, (VMAT(1,ISLC), ISLC=1,SLICE)
+        WRITE(304,154) (VMAT(1,ISLC), ISLC=1,SLICE)
+  154   FORMAT(2X,' VOL ',2X,8(A5,7X))
+        DO 155 ISOL=1,SOLS
+        PRINT 156, SOL(ISOL),(VMAT(ISOL+1,ISLC), ISLC=1,SLICE)
+        WRITE(304,156) SOL(ISOL),(VMAT(ISOL+1,ISLC), ISLC=1,SLICE)
+  155   CONTINUE
+  156   FORMAT(2X,A5,2X,8(A5,7X))
+C
+C        PRINT 160, (IG(I),I=1,IN)
+C        WRITE(304,160) (IG(I),I=1,IN)
+  160   FORMAT(//,'IG:',15(X,I3,','))
+C
+        RETURN
+        END
