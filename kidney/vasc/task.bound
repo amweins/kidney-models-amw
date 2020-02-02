@@ -1,0 +1,8 @@
+cp mrdvr/mrdbound.dat ~/vasc/mrdvr/mrdbound.tem
+cp omdvr/omdbound.dat ~/vasc/omdvr/omdbound.tem
+cp oidvr/oidbound.dat ~/vasc/oidvr/oidbound.tem
+cp imdvr/imdbound.dat ~/vasc/imdvr/imdbound.tem
+cp mravr/mrabound.dat ~/vasc/mravr/mrabound.tem
+cp omavr/omabound.dat ~/vasc/omavr/omabound.tem
+cp oiavr/oiabound.dat ~/vasc/oiavr/oiabound.tem
+cp imavr/imabound.dat ~/vasc/imavr/imabound.tem

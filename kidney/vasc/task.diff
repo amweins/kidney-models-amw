@@ -1,0 +1,16 @@
+echo "omdvr" > tmp
+diff ~/vasc/omdvr/omdnewt.f omdvr/omdnewt.f >> tmp
+echo "omavr" >> tmp
+diff ~/vasc/omavr/omanewt.f omavr/omanewt.f >> tmp
+echo "imdvr" >> tmp
+diff ~/vasc/imdvr/imdnewt.f imdvr/imdnewt.f >> tmp
+echo "imavr" >> tmp
+diff ~/vasc/imavr/imanewt.f imavr/imanewt.f >> tmp
+echo "mrdvr" >> tmp
+diff ~/vasc/mrdvr/mrdnewt.f mrdvr/mrdnewt.f >> tmp
+echo "mravr" >> tmp
+diff ~/vasc/mravr/mranewt.f mravr/mranewt.f >> tmp
+echo "oidvr" >> tmp
+diff ~/vasc/oidvr/oidnewt.f oidvr/oidnewt.f >> tmp
+echo "oiavr" >> tmp
+diff ~/vasc/oiavr/oianewt.f oiavr/oianewt.f >> tmp
