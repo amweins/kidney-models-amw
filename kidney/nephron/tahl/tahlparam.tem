@@ -1,0 +1,37 @@
+    0  205  400   .5000D-07   .5000D+00
+   .1000D-02   .6400D+04   .6400D-05   .1450D+00   .4960D+02
+   .1000D-02   .2000D-01
+ 1.000   .8000D-00
+ 1.000   .1000D+01
+ 1.000   .1300D+01
+ 1.000   .3500D-00
+ 1.000   .3500D-00
+ 1.000   .3500D-00
+ 1.000   .6000D-01
+ 1.000   .6000D-01
+ 1.000   .1000D-00
+ 1.000   .3000D-00
+ 1.000   .2000D-00
+ 1.000   .2400D+02
+   .1000D+01   .2200D-04
+ 1.000   .0000D-00
+ 1.000   .0000D-00
+ 1.000   .6000D-03
+ 1.000   .2000D-03
+ 1.000   .1300D-02
+ 1.000   .1500D+00
+ 1.000   .0000D-00
+ 1.000   .0000D-00
+ 1.000   .1000D-03
+ 1.000   .1500D-01
+ 1.000   .0000D-00
+ 1.000   .2000D-01
+    0
+
+Notes:
+ LP is set to 1% of SDL; reflection coefficients to 1.0
+ TJ permeabilities are increased 20-fold to match cation permeability
+    PK/PNa = 1.2;      PCl = 184  (2/3 from TJ)
+    PNH4/PK = 0.20     PH/PK = 1.0       PHCO3/PCl = 0.25
+ The cellular anion permeabilities (Cl, HCO3) now appear.
+ Urea is split evenly between cell and TJ
