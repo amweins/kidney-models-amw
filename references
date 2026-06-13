@@ -1,4 +1,120 @@
 
+PMID- 35001663
+TI  - A mathematical model of the rat kidney. IV. Whole kidney response to 
+      hyperkalemia.
+AB  - The renal response to acute hyperkalemia is mediated by increased K(+) secretion 
+      within the connecting tubule (CNT), flux that is modulated by tubular effects 
+      (e.g., aldosterone) in conjunction with increased luminal flow. There is ample 
+      evidence that peritubular K(+) blunts Na(+) reabsorption in the proximal tubule, 
+      thick ascending Henle limb, and distal convoluted tubule (DCT). Although any such 
+      reduction may augment CNT delivery, the relative contribution of each is 
+      uncertain. The kidney model of this laboratory was recently advanced with 
+      representation of the cortical labyrinth and medullary ray. Model tubules capture 
+      the impact of hyperkalemia to blunt Na(+) reabsorption within each upstream 
+      segment. However, this forces the question of the extent to which increased Na(+) 
+      delivery is transmitted past the macula densa and its tubuloglomerular feedback 
+      (TGF) signal. Beyond increasing macula densa Na(+) delivery, peritubular K(+) is 
+      predicted to raise cytosolic Cl(-) and depolarize macula densa cells, which may 
+      also activate TGF. Thus, although the upstream reduction in Na(+) transport may 
+      be larger, it appears that the DCT effect is critical to increasing CNT delivery. 
+      Beyond the flow effect, hyperkalemia reduces ammoniagenesis and reduced 
+      ammoniagenesis enhances K(+) excretion. What this model provides is a possible 
+      mechanism. When cortical [Formula: see text] is taken up via peritubular 
+      Na(+)-K(+)([Formula: see text])-ATPase, it acidifies principal cells. 
+      Consequently, reduced ammoniagenesis increases principal cell pH, thereby 
+      increasing conductance of both the epithelial Na(+) channel and renal outer 
+      medullary K(+) channel, enhancing K(+) excretion. In this model, the effect of 
+      aldosterone on principal cells, diminished DCT Na(+) reabsorption, and reduced 
+      ammoniagenesis all provide relatively equal and additive contributions to renal 
+      K(+) excretion.NEW & NOTEWORTHY Hyperkalemia blunts Na(+) reabsorption along the 
+      nephron, and increased CNT Na(+) delivery facilitates K(+) secretion. The model 
+      suggests that tubuloglomerular feedback limits transmission of proximal effects 
+      past the macula densa, so that it is DCT transport that is critical. Hyperkalemia 
+      also reduces PCT ammoniagenesis, which enhances K(+) excretion. The model 
+      suggests a mechanism, namely, that reduced cortical ammonia impacts CNT transport 
+      by raising cell pH and thus increasing both ENaC and ROMK conductance.
+AU  - Weinstein AM
+AD  - Department of Physiology and Biophysics, Weill Medical College of Cornell 
+      University, New York City, New York.
+AD  - Department of Medicine, Weill Medical College of Cornell University, New York 
+      City, New York.
+PMC - PMC8836735
+SO  - Am J Physiol Renal Physiol. 2022 Feb 1;322(2):F225-F244. doi: 
+      10.1152/ajprenal.00413.2021. Epub 2022 Jan 10.
+
+
+PMID- 33779315
+TI  - A mathematical model of the rat kidney. III. Ammonia transport.
+AB  - Ammonia generated within the kidney is partitioned into a urinary fraction (the 
+      key buffer for net acid excretion) and an aliquot delivered to the systemic 
+      circulation. The physiology of this partitioning has yet to be examined in a 
+      kidney model, and that was undertaken in this work. This involves explicit 
+      representation of the cortical labyrinth, so that cortical interstitial solute 
+      concentrations are computed rather than assigned. A detailed representation of 
+      cortical vasculature has been avoided by making the assumption that solute 
+      concentrations within the interstitium and peritubular capillaries are likely to 
+      be identical and that there is little to no modification of venous composition as 
+      blood flows to the renal vein. The model medullary ray has also been revised to 
+      include a segment of proximal straight tubule, which supplies ammonia to this 
+      region. The principal finding of this work is that cortical labyrinth 
+      interstitial ammonia concentration is likely to be several fold higher than 
+      systemic arterial ammonia. This elevation of interstitial ammonia enhances 
+      ammonia secretion in both the proximal convoluted tubule and distal convoluted 
+      tubule, with uptake by Na(+)-K(+)-ATPases of both segments. Model prediction of 
+      urinary ammonia excretion was concordant with measured values, but at the expense 
+      of greater ammoniagenesis, with high rates of renal venous ammonia flux. This 
+      derives from a limited capability of the model medulla to replicate the high 
+      interstitial ammonia concentrations that are required to drive collecting duct 
+      ammonia secretion. Thus, renal medullary ammonia trapping appears key to 
+      diverting ammonia from the renal vein to urine, but capturing the underlying 
+      physiology remains a challenge.NEW & NOTEWORTHY This is the first mathematical 
+      model to estimate solute concentrations within the kidney cortex. The model 
+      predicts cortical ammonia to be several fold greater than in the systemic 
+      circulation. This higher concentration drives ammonia secretion in proximal and 
+      distal tubules. The model reveals a gap in our understanding of how ammonia 
+      generated within the cortex is channeled efficiently into the final urine.
+AU  - Weinstein AM
+AD  - Department of Physiology and Biophysics, Weill Medical College of Cornell 
+      University, New York, New York.
+AD  - Department of Medicine, Weill Medical College of Cornell University, New York, 
+      New York.
+PMC - PMC8285647
+SO  - Am J Physiol Renal Physiol. 2021 Jun 1;320(6):F1059-F1079. doi: 
+      10.1152/ajprenal.00008.2021. Epub 2021 Mar 29.
+
+PMID- 32088967
+TI  - A mathematical model of the rat kidney. II. Antidiuresis.
+AB  - Kidney water conservation requires a hypertonic medullary interstitium, NaCl in 
+      the outer medulla and NaCl and urea in the inner medulla, plus a vascular 
+      configuration that protects against washout. In this work, a multisolute model of 
+      the rat kidney is revisited to examine its capacity to simulate antidiuresis. The 
+      first step was to streamline model computation by parallelizing its Jacobian 
+      calculation, thus allowing finer medullary spatial resolution and more extensive 
+      examination of model parameters. It is found that outer medullary NaCl is 
+      modestly increased when transporter density in ascending Henle limbs from 
+      juxtamedullary nephrons is scaled to match the greater juxtamedullary solute 
+      flow. However, higher NaCl transport produces greater CO(2) generation and, by 
+      virtue of countercurrent vascular flows, establishment of high medullary Pco(2). 
+      This CO(2) gradient can be mitigated by assuming that a fraction of medullary 
+      transport is powered anaerobically. Reducing vascular flows or increasing vessel 
+      permeabilities does little to further increase outer medullary solute gradients. 
+      In contrast to medullary models of others, vessels in this model have solute 
+      reflection coefficients close to zero; increasing these coefficients provides 
+      little enhancement of solute profiles but does generate high interstitial 
+      pressures, which distort tubule architecture. Increasing medullary urea delivery 
+      via entering vasa recta increases inner medullary urea, although not nearly to 
+      levels found in rats. In summary, 1) medullary Na(+) and urea gradients are not 
+      captured by the model and 2) the countercurrent architecture that provides 
+      antidiuresis also produces exaggerated Pco(2) profiles and is an unappreciated 
+      constraint on models of medullary function.
+AU  - Weinstein AM
+AD  - Department of Physiology and Biophysics and Department of Medicine, Weill Medical 
+      College of Cornell University, New York, New York.
+PMC - PMC7191455
+SO  - Am J Physiol Renal Physiol. 2020 Apr 1;318(4):F936-F955. doi: 
+      10.1152/ajprenal.00046.2020. Epub 2020 Feb 24.
+
+
 PMID- 28179254
 TI  - A mathematical model of the rat kidney: K(+)-induced natriuresis.
 AB  - A model of the rat nephron (Weinstein. Am J Physiol Renal Physiol 308:
