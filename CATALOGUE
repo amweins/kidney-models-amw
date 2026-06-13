@@ -111,3 +111,10 @@ which satisfy the conservation relations between segmental and vascular fluxes. 
 initial guesses and model parameters, and allows for sub-problems to be solved (either a subset of the model solutes, 
 or a single region).  Generally, it is best to solve the problem first for the important solutes (e.g. Na, K, Cl, urea),
 and then to use that solution as a guess for expansion to hydrostatic pressures and the acid-base variables.
+
+Kidney_mp: This is the advanced kidney model, in which solute concentrations within the kidney cortex 
+(medullary ray and cortical labyrinth) are solved as model unknowns.  Additionally the Fortran code for 
+this model uses the "multiple processor" feature of Fortran to allow simultaneous determination of 
+Jacobian columns.  In the last two papers of the kidney series (Weinstein, 2021; Weinstein 2022), this is
+the model that was used with an HP Linux workstation that had 44 processors.  Each processor displays a 
+dot on the terminal as computation of a column is completed.  A typical Jacobian was 352 x 352.
